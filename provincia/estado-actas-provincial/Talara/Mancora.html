@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PLATAFORMA ELECTORAL | ESTADO DE ACTAS DE LA CIUDAD DE TALARA | DISTRITO MANCORA</title>
+        <link rel="icon" type="image/png" href="/imagen/piura.png">
+        <link rel="stylesheet" href="/css/provincia.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+        <!--Encabezados-->
+        <header class="hero7">
+            <nav class="nav7 container7">
+                <a href="/index.html" class="logo" ><img src="/imagen/peru.png" width="100px" height="80px"></a>
+
+                <ul class="nav__link7 nav__link--menu7">
+                    <li class="nav__items7">
+                        <a href="/index.html" class="nav__links7">Inicio</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/index1.html" class="nav__links7">Resultados</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/actas.html" class="nav__links7">Actas</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/contacto.html" class="nav__links7">Contacto</a>
+                    </li>
+
+                    <img src="/imagen/close.svg" class="nav__close7">
+                </ul>
+                <div class="nav__menu7">
+                    <img src="/imagen/menu.svg" class="nav__img7">
+                </div>
+            </nav>
+        </header>
+        <!--CONTENIDO-->
+        <div class="container1">
+            <div class="ofert--txt">
+                <a href="javascript: history.go(-1)" class="btn-2"><i class="fa-solid fa-reply"></i> Volver</a>
+            </div>
+            <div class="header1">
+                <div class="header-item1">
+                    <label class="header-label1" for="departamento">Departamento:</label>
+                    <select class="select1" id="departamento">
+                        <option value="piura">PIURA</option>
+                    </select>
+                </div>
+                <div class="header-item1">
+                    <label class="header-label1" for="provincia">Provincia:</label>
+                    <select class="select1" id="provincia" onchange="goToLink('provincia')">
+                        <option value="todos1">----</option>
+                        <option value="/provincia/estado-actas-provincial/Piura/Estado-Piura.html">PIURA</option>
+                        <option value="/provincia/estado-actas-provincial/Ayabaca/Estado-Ayabaca.html">AYABACA</option>
+                        <option value="/provincia/estado-actas-provincial/Huancabamba/Estado-Huancabamba.html">HUANCABAMBA</option>
+                        <option value="/provincia/estado-actas-provincial/Morropon/Estado-Morropon.html">MORROPON</option>
+                        <option value="/provincia/estado-actas-provincial/Paita/Estado-Paita.html">PAITA</option>
+                        <option value="/provincia/estado-actas-provincial/Sechura/Estado-Sechura.html">SECHURA</option>
+                        <option value="/provincia/estado-actas-provincial/Sullana/Estado-Sullana.html">SULLANA</option>
+                        <option value="/provincia/estado-actas-provincial/Talara/Estado-Talara.html">TALARA</option>
+                    </select>
+                </div>
+                <div class="header-item1">
+                    <label class="header-label1" for="distrito">Distrito:</label>
+                    <select class="select1" id="distrito" onchange="goToLink(distrito)">
+                        <option value="distritos1">TODOS</option>
+                        <option value="/provincia/estado-actas-provincial/Talara/Parinas.html">PARIÑAS</option>
+                        <option value="/provincia/estado-actas-provincial/Talara/Alto.html">EL ALTO</option>
+                        <option value="/provincia/estado-actas-provincial/Talara/Brea.html">LA BREA</option>
+                        <option value="/provincia/estado-actas-provincial/Talara/Lobitos.html">LOBITOS</option>
+                        <option value="/provincia/estado-actas-provincial/Talara/Organos.html">LOS ORGANOS</option>
+                        <option value="/provincia/estado-actas-provincial/Talara/Mancora.html">MANCORA</option>
+                    </select>
+                </div>
+                <script>
+                    // Guardar selección en localStorage y redirigir
+                    function goToLink(selectId) {
+                        var select = document.getElementById(selectId);
+                        var url = select.value;
+                        localStorage.setItem(selectId, url);  // Guardar selección en localStorage
+                        if (url !== "todos1" && url !== "distritos1") {
+                            window.location.href = url;
+                        }
+                    }
+                
+                    // Recuperar la selección de localStorage al cargar la página
+                    function loadSelection(selectId) {
+                        var savedValue = localStorage.getItem(selectId);
+                        if (savedValue) {
+                            var select = document.getElementById(selectId);
+                            select.value = savedValue;  // Asignar la selección previa
+                        }
+                    }
+                
+                    // Cargar la selección previa cuando la página se carga
+                    window.onload = function() {
+                        loadSelection('provincia');
+                        loadSelection('distrito1');
+                    };
+                </script>
+            </div>
+            <div class="stats1">
+                <div class="stat1">
+                    <div class="stat-value1">28 (100.000 %)</div>
+                    <div class="stat-label1">Actas procesadas</div>
+                </div>
+                <br>
+                <div class="stat1">
+                    <div class="stat-value1">28 (100.000 %)</div>
+                    <div class="stat-label1">Actas contabilizadas</div>
+                </div>
+                <br>
+                <div class="stat1">
+                    <div class="stat-value1">8,161</div>
+                    <div class="stat-label1">Electores hábiles</div>
+                </div>
+                <br>
+                <div class="stat1">
+                    <b><div class="stat-value1">6,687 (81.938 %)</div></b>
+                    <div class="stat-label1">Participación ciudadana</div>
+                </div>
+            </div>
+            <div class="content1">
+                <div class="sidebar1">
+                    <div class="sidebar-title1">Municipal provincial</div>
+                    <a href="/provincia/Talara.html"><div class="sidebar-item1">Resultados</div></a>
+                    <a href="/provincia/estado-actas-provincial/Estado-Talara.html"><div class="sidebar-item1">Estado de actas</div></a>
+                    <a href="/provincia/resumen-provincial.html"><div class="sidebar-item1">Resumen</div></a>
+                    <br>
+                    <div class="sidebar-title1">Municipal distrital</div>
+                    <div class="sidebar-item1">Resultados</div>
+                    <div class="sidebar-item1">Estado de actas</div>
+                    <div class="sidebar-item1">Resumen</div>
+                </div>
+                <!--Grafico-->
+                <section class="price">
+                    <h4 class="sub-title">Estado de actas elecciones - Municipal provincial: PIURA > TALARA > EL ALTO</h4>
+                    <div id="map-container" class="map1">
+                        <img src="/imagen/distritos-piura.png" alt="Mapa de Piura" width="80px" height="100px">
+                    </div>
+                    <table class="results-table1">
+                        <thead>
+                            <tr>
+                                <th>Mesas instaladas (N)</th>
+                                <th>Mesas no instaladas (O)</th>
+                                <th>Mesas por informar (P)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <td>28</td>
+                            <td>0</td>
+                            <td>0</td>
+                        </tbody>
+                    </table>
+                    <br>
+                    <br>
+                    <div class="container5">
+                        <div class="title5">Actas contabilizadas</div>
+                        <div class="description5">
+                            Es aquella cuyos resultados han sido sumados en el sistema de cómputo electoral.
+                        </div>
+                        <div class="formula-title5">Fórmula para obtener el % actas contabilizadas.</div>
+                        <div class="formula5">
+                            <span class="numerator5">
+                                Contabilizadas normales + Contabilizadas anuladas + Actas de mesas no instaladas
+                            </span>
+                            <span class="underline5"></span>
+                            <span class="denominator5">
+                                Mesas instaladas + Mesas no instaladas + Mesas por informar
+                            </span>
+                        </div>
+                    </div>
+                </section>
+
+                <!--Mapa Y QUESTIONS-->
+                <div class="content2">
+                    <div class="buttons1">
+                        <button class="button1" onclick="exportPDF()">Exportar PDF</button> &nbsp;
+                        <button class="button1" onclick="exportCSV()">Exportar CSV</button> &nbsp;
+                        <button class="button1">Imprimir</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <script src="/js/faq.js"></script>
+        <script src="/js/exportar-pdf.js"></script>
+        <script src="/js/exportar-csv.js"></script>
+        <script src="/js/menu.js"></script>
+    </body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PLATAFORMA ELECTORAL | CANDIDATOS</title>
+        <link rel="icon" type="image/png" href="/imagen/piura.png">
+        <link rel="stylesheet" href="/css/provincia.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+        <!--Encabezados-->
+        <header class="hero7">
+            <nav class="nav7 container7">
+                <a href="/index.html" class="logo" ><img src="/imagen/peru.png" width="100px" height="80px"></a>
+
+                <ul class="nav__link7 nav__link--menu7">
+                    <li class="nav__items7">
+                        <a href="/index.html" class="nav__links7">Inicio</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/candidatos.html" class="nav__links7">Candidatos</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/index1.html" class="nav__links7">Resultados</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="#" class="nav__links7">Actas</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/contacto.html" class="nav__links7">Contacto</a>
+                    </li>
+
+                    <img src="/imagen/close.svg" class="nav__close7">
+                </ul>
+                <div class="nav__menu7">
+                    <img src="/imagen/menu.svg" class="nav__img7">
+                </div>
+            </nav>
+        </header>
+        <!--CONTENIDO-->
+        <div class="container1">
+            <div class="ofert--txt">
+                <a href="javascript: history.go(-1)" class="btn-2"><i class="fa-solid fa-reply"></i> Volver</a>
+            </div>
+            <div class="header1">
+                <div class="header-item1">
+                    <label class="header-label1" for="departamento">Departamento:</label>
+                    <select class="select1" id="departamento" onchange="updateProvincias()">
+                        <option value="todos">-- SELECCIONE --</option>
+                        <option value="piura">PIURA</option>
+                        <!-- Aquí puedes agregar más departamentos -->
+                    </select>
+                </div>
+            
+                <div class="header-item1">
+                    <label class="header-label1" for="provincia">Provincia:</label>
+                    <select class="select1" id="provincia" onchange="goToLink('provincia')">
+                        <option value="todos">-- SELECCIONE --</option>
+                        <!-- Las provincias se actualizarán dinámicamente -->
+                    </select>
+                </div>
+            </div>
+            
+            <script>
+                // Provincias por departamento
+                const provinciasPorDepartamento = {
+                    piura: [
+                        { nombre: 'PIURA', url: '/provincia/Piura.html' },
+                        { nombre: 'AYABACA', url: '/provincia/Ayabaca.html' },
+                        { nombre: 'HUANCABAMBA', url: '/provincia/Huancabamba.html' },
+                        { nombre: 'MORROPON', url: '/provincia/Morropon.html' },
+                        { nombre: 'PAITA', url: '/provincia/Paita.html' },
+                        { nombre: 'SECHURA', url: '/provincia/Sechura.html' },
+                        { nombre: 'SULLANA', url: '/provincia/Sullana.html' },
+                        { nombre: 'TALARA', url: '/provincia/Talara.html' }
+                    ]
+                    // Puedes agregar más departamentos y sus provincias aquí
+                };
+            
+                // Función para actualizar las provincias en función del departamento seleccionado
+                function updateProvincias() {
+                    const departamento = document.getElementById('departamento').value;
+                    const provinciaSelect = document.getElementById('provincia');
+                    provinciaSelect.innerHTML = ''; // Limpiar provincias actuales
+            
+                    if (provinciasPorDepartamento[departamento]) {
+                        provinciasPorDepartamento[departamento].forEach(provincia => {
+                            const option = document.createElement('option');
+                            option.value = provincia.url;
+                            option.textContent = provincia.nombre;
+                            provinciaSelect.appendChild(option);
+                        });
+                    } else {
+                        // Si no hay departamento seleccionado, mostrar opción por defecto
+                        const option = document.createElement('option');
+                        option.value = 'todos';
+                        option.textContent = '-- SELECCIONE --';
+                        provinciaSelect.appendChild(option);
+                    }
+                }
+            
+                // Guardar selección en localStorage y redirigir
+                function goToLink(selectId) {
+                    var select = document.getElementById(selectId);
+                    var url = select.value;
+                    localStorage.setItem(selectId, url);  // Guardar selección en localStorage
+                    if (url !== 'todos') {
+                        window.location.href = url;
+                    }
+                }
+            
+                // Recuperar la selección de localStorage al cargar la página
+                function loadSelection(selectId) {
+                    var savedValue = localStorage.getItem(selectId);
+                    if (savedValue) {
+                        var select = document.getElementById(selectId);
+                        select.value = savedValue;  // Asignar la selección previa
+                    }
+                }
+            
+                // Cargar la selección previa cuando la página se carga
+                window.onload = function() {
+                    loadSelection('provincia');
+                    updateProvincias(); // Asegúrate de que las provincias se actualicen al cargar la página
+                };
+            </script>            
+            </div>
+        </div>
+    </body>
+</html>

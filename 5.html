@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidatos de Piura</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+#provincias {
+    margin: 2rem auto;
+    width: 80%;
+}
+
+.provincia {
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.provincia-header {
+    cursor: pointer;
+    padding: 1rem;
+    background-color: #f4f4f9;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.5rem;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.provincia-header:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.provincia-header::after {
+    content: '+';
+    font-size: 1.5rem;
+}
+
+.provincia.active .provincia-header::after {
+    content: '-';
+}
+
+.distritos {
+    display: none;
+    padding: 1rem;
+}
+
+.distritos.active {
+    display: block;
+}
+
+.distrito {
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.distrito h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.alcalde, .regidores {
+    margin-left: 1.5rem;
+    color: #555;
+}
+
+.regidores ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.regidores ul li {
+    padding-left: 1rem;
+    position: relative;
+}
+
+.regidores ul li::before {
+    content: '•';
+    color: #4CAF50;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Candidatos para Alcalde y Regidores por Provincia en Piura</h1>
+    </header>
+
+    <section id="provincias"></section>
+
+    <script>
+        // Lista de provincias con sus distritos, alcaldes y regidores
+const provincias = [
+    {
+        nombre: "Piura",
+        distritos: [
+            { nombre: "Castilla", alcalde: "Candidato A", regidores: ["Regidor A1", "Regidor A2", "Regidor A3"] },
+            { nombre: "Catacaos", alcalde: "Candidato B", regidores: ["Regidor B1", "Regidor B2", "Regidor B3"] },
+            // Añadir más distritos aquí
+        ]
+    },
+    {
+        nombre: "Ayabaca",
+        distritos: [
+            { nombre: "Ayabaca", alcalde: "Candidato C", regidores: ["Regidor C1", "Regidor C2", "Regidor C3"] },
+            { nombre: "Pacaipampa", alcalde: "Candidato D", regidores: ["Regidor D1", "Regidor D2", "Regidor D3"] },
+            // Añadir más distritos aquí
+        ]
+    },
+    // Añadir más provincias aquí
+];
+
+// Función para crear el contenido dinámicamente
+function cargarCandidatos() {
+    const container = document.getElementById('provincias');
+
+    provincias.forEach(provincia => {
+        // Crear un contenedor para cada provincia
+        const provinciaDiv = document.createElement('div');
+        provinciaDiv.classList.add('provincia');
+
+        // Header de la provincia (desplegable)
+        const provinciaHeader = document.createElement('div');
+        provinciaHeader.classList.add('provincia-header');
+        provinciaHeader.textContent = provincia.nombre;
+        provinciaDiv.appendChild(provinciaHeader);
+
+        // Contenedor de distritos
+        const distritosDiv = document.createElement('div');
+        distritosDiv.classList.add('distritos');
+
+        // Listar los distritos de la provincia
+        provincia.distritos.forEach(distrito => {
+            const distritoDiv = document.createElement('div');
+            distritoDiv.classList.add('distrito');
+
+            const distritoTitulo = document.createElement('h3');
+            distritoTitulo.textContent = `Distrito: ${distrito.nombre}`;
+            distritoDiv.appendChild(distritoTitulo);
+
+            const alcaldeP = document.createElement('p');
+            alcaldeP.classList.add('alcalde');
+            alcaldeP.textContent = `Alcalde: ${distrito.alcalde}`;
+            distritoDiv.appendChild(alcaldeP);
+
+            const regidoresDiv = document.createElement('div');
+            regidoresDiv.classList.add('regidores');
+            regidoresDiv.innerHTML = `<strong>Regidores:</strong> <ul></ul>`;
+
+            const regidoresUl = regidoresDiv.querySelector('ul');
+            distrito.regidores.forEach(regidor => {
+                const regidorLi = document.createElement('li');
+                regidorLi.textContent = regidor;
+                regidoresUl.appendChild(regidorLi);
+            });
+
+            distritoDiv.appendChild(regidoresDiv);
+            distritosDiv.appendChild(distritoDiv);
+        });
+
+        provinciaDiv.appendChild(distritosDiv);
+        container.appendChild(provinciaDiv);
+
+        // Evento para desplegar los distritos al hacer clic en la provincia
+        provinciaHeader.addEventListener('click', () => {
+            provinciaDiv.classList.toggle('active');
+            distritosDiv.classList.toggle('active');
+        });
+    });
+}
+
+// Llamar a la función cuando se cargue la página
+document.addEventListener('DOMContentLoaded', cargarCandidatos);
+
+    </script>
+</body>
+</html>

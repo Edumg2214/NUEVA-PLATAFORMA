@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PLATAFORMA ELECTORAL | ACTAS DEL CASINO DE EMPLEADOS CIVILES DEL EJÉRCITO</title>
+        <link rel="icon" type="image/png" href="/imagen/piura.png">
+        <link rel="stylesheet" href="/css/provincia.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+    <body>
+        <!--Encabezados-->
+        <header class="hero7">
+            <nav class="nav7 container7">
+                <a href="/index.html" class="logo" ><img src="/imagen/peru.png" width="100px" height="80px"></a>
+
+                <ul class="nav__link7 nav__link--menu7">
+                    <li class="nav__items7">
+                        <a href="/index.html" class="nav__links7">Inicio</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/index1.html" class="nav__links7">Resultados</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/actas.html" class="nav__links7">Actas</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/contacto.html" class="nav__links7">Contacto</a>
+                    </li>
+
+                    <img src="/imagen/close.svg" class="nav__close7">
+                </ul>
+                <div class="nav__menu7">
+                    <img src="/imagen/menu.svg" class="nav__img7">
+                </div>
+            </nav>
+        </header>
+        <!--CONTENIDO-->
+        <div class="container1">
+            <div class="ofert--txt">
+                <a href="javascript: history.go(-1)" class="btn-2"><i class="fa-solid fa-reply"></i> Volver</a>
+            </div>
+            <div class="header1">
+                <div class="header-item1">
+                    <label class="header-label1" for="departamento">Departamento:</label>
+                    <select class="select1" id="departamento" onchange="actualizarProvincias()">
+                        <option value="piura">PIURA</option>
+                    </select>
+                </div>
+                <div class="header-item1">
+                    <label class="header-label1" for="provincia">Provincia:</label>
+                    <select class="select1" id="provincia" onchange="actualizarDistritos()">
+                        <option value="">-- SELECCIONE --</option>
+                    </select>
+                </div>
+                <div class="header-item1">
+                    <label class="header-label1" for="distrito">Distrito:</label>
+                    <select class="select1" id="distrito" onchange="actualizarLocales()">
+                        <option value="">-- SELECCIONE --</option>
+                    </select>
+                </div>
+                <div class="header-item1">
+                    <label class="header-label1" for="local">Locales:</label>
+                    <select class="select1" id="local">
+                        <option value="">-- SELECCIONE --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="content1">
+                <!--SIDEBAR-->
+                <div class="sidebar1">
+                    <div class="sidebar-item1">Actas por Ubigeo</div>
+                    <div class="sidebar-item1">Actas por Número</div>
+                </div>
+                <!--MAPA-->
+                <section class="price2" >
+                    <h2 class="sub-title" >Actas por ubigeo</h2>
+                    <div class="map2" width="400px" >
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3973.470046043369!2d-80.64817952448279!3d-5.188543152343693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x904a1b9da715974f%3A0x793f3c3aafcaf0f3!2sCasino%20Del%20Ejercito%20Peruano!5e0!3m2!1ses!2spe!4v1726237085557!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" position="relative"></iframe>                    
+                    </div>               
+                </section>
+                <div class="content2">
+                    <h4 class="sub-title">Lista de Mesas</h4>
+                    <div class="container9">
+                        <p>Selecciona la mesa de votación:</p>
+                        <div class="mesa9" data-url="CASINO DE EMPLEADOS CIVILES DEL EJÉRCITO/065433.html">065433</div>
+                        <div class="mesa9" data-url="CASINO DE EMPLEADOS CIVILES DEL EJÉRCITO/065432.html">065432</div>
+                        <div class="mesa9" data-url="CASINO DE EMPLEADOS CIVILES DEL EJÉRCITO/065434.html">065434</div>
+                        <div class="mesa9" data-url="CASINO DE EMPLEADOS CIVILES DEL EJÉRCITO/065431.html">065431</div>
+                        <div class="stats9">
+                            <div class="stat9 processed9">Mesas <b>procesadas</b>: 4</div>
+                            <div class="stat9 unprocessed9">Mesas <b>sin procesar</b>: 0</div>
+                        </div>
+                        <div class="pagination9">
+                            <span>Página: <div class="page-button9 active9">1</div></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cont1">
+                <div class="head">
+                    <p>Fecha de actualización: 02/12/2022 16:59</p>
+                </div>
+                <div class="content6">
+                    <p><strong>Departamento</strong> PIURA</p>
+                    <p><strong>Provincia</strong> PIURA</p>
+                    <p><strong>Distrito</strong> PIURA</p>
+                    <p><strong>Local de votación</strong> CASINO DE EMPLEADOS CIVILES DEL EJERCITO</p>
+                    <p><strong>Dirección</strong> JR LA ARENA 802</p>
+                </div>
+                <div class="acordion">
+                    <div class="accordion-button-item">
+                        <button class="accordion-button" onclick="togglePanel(this)">
+                            Información del acta municipal
+                            <span class="plus">+</span>
+                        </button>
+                        <div class="accordion-panel">
+                            <p> Hola</p>
+                        </div>
+                    </div>
+                    <div class="accordion-button-item">
+                        <button class="accordion-button" onclick="togglePanel(this)">
+                            Información del acta regional
+                            <span class="plus">+</span>
+                        </button>
+                        <div class="accordion-panel">
+                            <p> Hola</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- JS -->
+        <script src="/js/menu.js"></script>
+        <script src="/js/exportar-pdf.js"></script>
+        <script src="/js/exportar-csv.js"></script>
+        <script src="/js/actualizar.js"></script>
+    </body>
+</html>

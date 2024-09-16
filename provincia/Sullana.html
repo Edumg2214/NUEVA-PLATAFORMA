@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PLATAFORMA ELECTORAL | CIUDAD DE SULLANA</title>
+        <link rel="icon" type="image/png" href="/imagen/piura.png">
+        <link rel="stylesheet" href="/css/provincia.css">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    </head>
+    <body>
+        <!--Encabezados-->
+        <header class="hero7">
+            <nav class="nav7 container7">
+                <a href="/index.html" class="logo" ><img src="/imagen/peru.png" width="100px" height="80px"></a>
+
+                <ul class="nav__link7 nav__link--menu7">
+                    <li class="nav__items7">
+                        <a href="/index.html" class="nav__links7">Inicio</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/index1.html" class="nav__links7">Resultados</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/actas.html" class="nav__links7">Actas</a>
+                    </li>
+                    <li class="nav__items7">
+                        <a href="/contacto.html" class="nav__links7">Contacto</a>
+                    </li>
+
+                    <img src="/imagen/close.svg" class="nav__close7">
+                </ul>
+                <div class="nav__menu7">
+                    <img src="/imagen/menu.svg" class="nav__img7">
+                </div>
+            </nav>
+        </header>
+        <!--CONTENIDO-->
+        <div class="container1">
+            <div class="ofert--txt">
+                <a href="javascript: history.go(-1)" class="btn-2"><i class="fa-solid fa-reply"></i> Volver</a>
+            </div>
+            <div class="header1">
+                <div class="header-item1">
+                    <label class="header-label1" for="departamento">Departamento:</label>
+                    <select class="select1" id="departamento">
+                        <option value="piura">PIURA</option>
+                    </select>
+                </div>
+                <div class="header-item1">
+                    <label class="header-label1" for="provincia">Provincia:</label>
+                    <select class="select1" id="provincia" onchange="goToLink('provincia')">
+                        <option value="todos1">----</option>
+                        <option value="/provincia/Piura.html">PIURA</option>
+                        <option value="/provincia/Ayabaca.html">AYABACA</option>
+                        <option value="/provincia/Huancabamba.html">HUANCABAMBA</option>
+                        <option value="/provincia/Morropon.html">MORROPON</option>
+                        <option value="/provincia/Paita.html">PAITA</option>
+                        <option value="/provincia/Sechura.html">SECHURA</option>
+                        <option value="/provincia/Sullana.html">SULLANA</option>
+                        <option value="/provincia/Talara.html">TALARA</option>
+                    </select>
+                </div>
+                <div class="header-item1">
+                    <label class="header-label1" for="distrito">Distrito:</label>
+                    <select class="select1" id="distrito" onchange="goToLink(distrito)">
+                        <option value="distritos1">TODOS</option>
+                        <option value="/provincia/distrito-sullana/Sullana.html">SULLANA</option>
+                        <option value="/provincia/distrito-sullana/Bellavista.html">BELLAVISTA</option>
+                        <option value="/provincia/distrito-sullana/Marcavelica.html">MARCAVELICA</option>
+                        <option value="/provincia/distrito-sullana/Salitral.html">SALITRAL</option>
+                        <option value="/provincia/distrito-sullana/Querecotillo.html">QUERECOTILLO</option>
+                        <option value="/provincia/distrito-sullana/Lancones.html">LANCONES</option>
+                        <option value="/provincia/distrito-sullana/Ignacio.html">IGNACIO ESCUDERO</option>
+                        <option value="/provincia/distrito-sullana/Miguel.html">MIGUEL CHECA</option>
+                    </select>
+                </div>
+                <script>
+                    // Guardar selección en localStorage y redirigir
+                    function goToLink(selectId) {
+                        var select = document.getElementById(selectId);
+                        var url = select.value;
+                        localStorage.setItem(selectId, url);  // Guardar selección en localStorage
+                        if (url !== "todos1" && url !== "distritos1") {
+                            window.location.href = url;
+                        }
+                    }
+                
+                    // Recuperar la selección de localStorage al cargar la página
+                    function loadSelection(selectId) {
+                        var savedValue = localStorage.getItem(selectId);
+                        if (savedValue) {
+                            var select = document.getElementById(selectId);
+                            select.value = savedValue;  // Asignar la selección previa
+                        }
+                    }
+                
+                    // Cargar la selección previa cuando la página se carga
+                    window.onload = function() {
+                        loadSelection('provincia');
+                        loadSelection('distrito');
+                    };
+                </script>
+            </div>
+    
+            <div class="stats1">
+                <div class="stat1">
+                    <div class="stat-value1"> 832 (100.000 %)</div>
+                    <div class="stat-label1">Actas procesadas</div>
+                </div>
+                <div class="stat1">
+                    <div class="stat-value1"> 832 (100.000 %)</div>
+                    <div class="stat-label1">Actas contabilizadas</div>
+                </div>
+                <div class="stat1">
+                    <div class="stat-value1"> 248,139</div>
+                    <div class="stat-label1">Electores hábiles</div>
+                </div>
+                <div class="stat1">
+                    <b><div class="stat-value1"> 199,170 (80.265 %)</div></b>
+                    <div class="stat-label1">Participación ciudadana</div>
+                </div>
+            </div>
+            <div class="content1">
+                <div class="sidebar1">
+                    <div class="sidebar-title1">Municipal provincial</div>
+                    <a href="/provincia/Sullana.html"><div class="sidebar-item1">Resultados</div></a>
+                    <a href="/provincia/estado-actas-provincial/Sullana/Estado-Sullana.html"><div class="sidebar-item1">Estado de actas</div></a>
+                    <a href="/provincia/resumen-provincial.html"><div class="sidebar-item1">Resumen</div></a>
+                    <br>
+                    <div class="sidebar-title1">Municipal distrital</div>
+                    <div class="sidebar-item1">Resultados</div>
+                    <div class="sidebar-item1">Estado de actas</div>
+                    <div class="sidebar-item1">Resumen</div>
+                </div>
+                <!--Grafico-->
+                <section class="price">
+                    <h4 class="sub-title">Resultados elecciones - Municipal provincial: PIURA > SULLANA</h4>
+                    <div style="width: 700px; left:-100px; position:relative" class="grafica">
+                        <canvas id="grafica7"></canvas>
+                    </div>
+                </section>
+
+                <!--Mapa-->
+                <div class="content2">
+                    <div class="buttons1">
+                        <button class="button1" onclick="exportPDF()">Exportar PDF</button> &nbsp;
+                        <button class="button1" onclick="exportCSV()">Exportar CSV</button> &nbsp;
+                        <button class="button1">Imprimir</button>
+                    </div>
+                    <div id="map-container" class="map1">
+                        <img src="/imagen/distrito-sullana.png" alt="Mapa de Piura" width="80px" height="100px">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <table class="results-table">
+                <thead>
+                    <tr>
+                        <th> Organización política</th>
+                        <th> Total</th>
+                        <th> % Votos válidos</th>
+                        <th> % Votos emitidos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="/imagen/renace.png" alt="Piura Renace Logo"> PIURA RENACE</td>
+                        <td>4,226</td>
+                        <td>2.506 %</td>
+                        <td>2.122 %</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/imagen/unidad.png" alt="Organización Política Logo"> ORGANIZACION POLITICA UNIDAD REGIONAL</td>
+                        <td>32,049</td>
+                        <td>19.005 %</td>
+                        <td>16.091 %</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/imagen/movimiento.png" alt="Movimiento Independiente Logo"> MOVIMIENTO INDEPENDIENTE FUERZA REGIONAL</td>
+                        <td>22,778</td>
+                        <td>13.507 %</td>
+                        <td>11.436 %</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/imagen/region.jpeg" alt="Region para Todos Logo"> REGION PARA TODOS</td>
+                        <td>37,639</td>
+                        <td>22.319 %</td>
+                        <td>18.898 %</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/imagen/contigo.png" alt="Contigo Region Logo"> CONTIGO REGION</td>
+                        <td>36,432</td>
+                        <td>21.604 %</td>
+                        <td>18.292 %</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/imagen/popular.png" alt="Fuerza Popular Logo"> FUERZA POPULAR</td>
+                        <td>7,790</td>
+                        <td>4.619 %</td>
+                        <td>3.911 %</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/imagen/podemos.jpeg" alt="Podemos Peru Logo"> PODEMOS PERU</td>
+                        <td>6,103</td>
+                        <td>3.619 %</td>
+                        <td>3.064 %</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/imagen/renovacion.svg" alt="Renovacion Popular Logo"> RENOVACION POPULAR</td>
+                        <td>1,076</td>
+                        <td>0.638 %</td>
+                        <td>0.540 %</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/imagen/alianza.png" alt="Alianza para el progreso Logo"> ALIANZA PARA EL PROGRESO</td>
+                        <td>5,494</td>
+                        <td>3.258 %</td>
+                        <td>2.758 %</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/imagen/avanza.jpeg" alt="Alianza para el progreso Logo"> AVANZA PAIS - PARTIDO DE INTEGRACION SOCIAL</td>
+                        <td>1,485</td>
+                        <td>0.881 %</td>
+                        <td>0.746 %</td>
+                    </tr>
+                    <tr>
+                        <td><img src="/imagen/somos.png" alt="Somos Peru Logo"> PARTIDO DEMOCRATICO SOMOS PERU</td>
+                        <td>13,567</td>
+                        <td>8.045 %</td>
+                        <td>6.812 %</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>TOTAL DE VOTOS VÁLIDOS</td>
+                        <td>168,639</td>
+                        <td>100.000 %</td>
+                        <td>84.671 %</td>
+                    </tr>
+                    <tr>
+                        <td>VOTOS EN BLANCO</td>
+                        <td>12,096</td>
+                        <td>    </td>
+                        <td>6.073 %</td>
+                    </tr>
+                    <tr>
+                        <td>VOTOS NULOS</td>
+                        <td>18,435</td>
+                        <td></td>
+                        <td>9.256 %</td>
+                    </tr>
+                    <tr>
+                        <td>TOTAL DE VOTOS EMITIDOS</td>
+                        <td>199,170</td>
+                        <td></td>
+                        <td>100.000 %</td>
+                    </tr>
+                </tfoot>
+            </table>
+        
+            <br>
+            <br>
+            <div class="container">
+                <div class="table-container">
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Actas</th>
+                                <th>832</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Actas procesadas 100.000 % (*)</td>
+                                <td>832</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>Actas enviadas al JEE</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        
+                <div class="table-container">
+                    <table class="info-table">
+                        <thead>
+                            <tr>
+                                <th>Información referencial</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mesas instaladas (N)</td>
+                                <td>832</td>
+                            </tr>
+                            <tr class="highlight-row">
+                                <td>Mesas no instaladas (O)</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td>Mesas por informar (P)</td>
+                                <td>0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- JS -->
+        <script src="/js/menu.js"></script>
+        <script src="/js/exportar-pdf.js"></script>
+        <script src="/js/exportar-csv.js"></script>
+        <script src="/js/barra.js"></script>
+    </body>
+</html>

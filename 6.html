@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: 0 auto;
+}
+.header {
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.header h1 {
+  margin: 0;
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.card-header .logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin-right: 10px;
+}
+.card-header .title {
+  font-size: 18px;
+  font-weight: bold;
+}
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+.card-body .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.card-body .label {
+  font-weight: bold;
+}
+.card-body .value {
+  font-size: 14px;
+}
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.card-footer button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.card-footer button:hover {
+  background-color: #0062cc;
+}
+.card-footer button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>EXPORTAR BÚSQUEDA A EXCEL</h1>
+  </div>
+  <div class="content">
+    <div class="card">
+      <div class="card-header">
+        <div class="logo">
+          <i class="fas fa-shovel"></i>
+        </div>
+        <div class="title">ACCION POPULAR</div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="label">NRO. DE EXPEDIENTE:</div>
+          <div class="value">ERM.2022009040</div>
+        </div>
+        <div class="row">
+          <div class="label">Ubigeo:</div>
+          <div class="value">PIURA/PIURA/VEINTISEIS DE OCTUBRE</div>
+        </div>
+        <div class="row">
+          <div class="label">JEE:</div>
+          <div class="value">PIURA</div>
+        </div>
+        <div class="row">
+          <div class="label">Estado de Lista:</div>
+          <div class="value">INSCRITO</div>
+        </div>
+        <div class="row">
+          <div class="label">Cantidad de Candidatos:</div>
+          <div class="value">12</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary">VER EXPEDIENTES</button>
+        <button class="btn btn-primary">VER CANDIDATOS</button>
+        <button class="btn btn-primary">PLAN DE GOBIERNO COMPLETO</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="logo">
+          <i class="fas fa-a"></i>
+        </div>
+        <div class="title">ALIANZA PARA EL PROGRESO</div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="label">NRO. DE EXPEDIENTE:</div>
+          <div class="value">ERM.2022010525</div>
+        </div>
+        <div class="row">
+          <div class="label">Ubigeo:</div>
+          <div class="value">PIURA/PIURA/VEINTISEIS DE OCTUBRE</div>
+        </div>
+        <div class="row">
+          <div class="label">JEE:</div>
+          <div class="value">PIURA</div>
+        </div>
+        <div class="row">
+          <div class="label">Estado de Lista:</div>
+          <div class="value">INSCRITO</div>
+        </div>
+        <div class="row">
+          <div class="label">Cantidad de Candidatos:</div>
+          <div class="value">12</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary">VER EXPEDIENTES</button>
+        <button class="btn btn-primary">VER CANDIDATOS</button>
+        <button class="btn btn-primary">PLAN DE GOBIERNO COMPLETO</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="logo">
+          <i class="fas fa-a"></i>
+        </div>
+        <div class="title">ALIANZA PARA EL PROGRESO</div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="label">NRO. DE EXPEDIENTE:</div>
+          <div class="value">ERM.2022010485</div>
+        </div>
+        <div class="row">
+          <div class="label">Ubigeo:</div>
+          <div class="value">PIURA/PIURA/TAMBO GRANDE</div>
+        </div>
+        <div class="row">
+          <div class="label">JEE:</div>
+          <div class="value">PIURA</div>
+        </div>
+        <div class="row">
+          <div class="label">Estado de Lista:</div>
+          <div class="value">INSCRITO</div>
+        </div>
+        <div class="row">
+          <div class="label">Cantidad de Candidatos:</div>
+          <div class="value">12</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-primary">VER EXPEDIENTES</button>
+        <button class="btn btn-primary">VER CANDIDATOS</button>
+        <button class="btn btn-primary">PLAN DE GOBIERNO COMPLETO</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
